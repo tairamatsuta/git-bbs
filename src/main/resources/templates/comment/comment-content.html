@@ -5,7 +5,7 @@
 </head>
 <body>
 	<div th:fragment="comment_content_fragment"><!-- 投稿記事情報:article -->
-		<div th:each="comment : ${article.comments}">
+		<div th:each="comment : ${article.commentList}">
 			<label>コメント者名:</label><span th:text="${comment.name}"></span><br>
 			<label>コメント内容:</label><br>
 			<span th:text="${comment.content}"></span><br>
