@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div th:fragment="comment_content_fragment"><!-- 投稿記事情報:article -->
+		<div th:each="comment : ${article.comments}">
+			<label>コメント者名:</label><span th:text="${comment.name}"></span><br>
+			<label>コメント内容:</label><br>
+			<span th:text="${comment.content}"></span><br>
+			<br>
+		</div>
+	</div>
+</body>
+</html>

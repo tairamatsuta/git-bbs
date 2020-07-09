@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<form th:fragment="comment_post_fragment" th:action="@{/ex-bbs/comment-post}" th:object="${commentForm}" method="post">
+		<input type="hidden" id="articleId" name="articleId" th:value="${article.id}"><!-- 投稿記事情報:article -->
+		<label for="comment_post_name">名前:</label><span th:if="${article.id}==*{articleId}" th:errors="*{name}" style="color:red"></span><br>
+		<span th:if="${article.id}==*{articleId}">
+			<input id="comment_name" name="comment_name" th:field="*{name}"><br>
+		</span>
+		<span th:unless="${article.id}==*{articleId}">
+			<input id="comment_name" name="name"><br>
+		</span>
+		
+		<label for="comment_post_content">コメント:</label><span th:if="${article.id}==*{articleId}" th:errors="*{content}" style="color:red"></span><br>
+		<span th:if="${article.id}==*{articleId}">
+			<textarea id="comment_post_content" name="comment_post_content" th:field="*{content}" rows="5" cols="23" style="resize:none"></textarea><br>
+		</span>
+		<span th:unless="${article.id}==*{articleId}">
+			<textarea id="comment_post_content" name="content" rows="5" cols="23" style="resize:none"></textarea><br>
+		</span>
+		<button>コメント投稿</button>
+		<hr>
+	</form>
+</body>
+</html>
