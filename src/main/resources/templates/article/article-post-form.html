@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<form th:fragment="article_post_fragment" th:action="@{/ex-bbs/article-post}" th:object="${articleForm}" method="post">
+		<table>
+			<tr>
+				<td colspan="2"><span th:errors="*{name}" style="color:red"></span></td>
+			</tr>
+			<tr>
+				<td><label for="article_post_name">投稿者名:</label></td>
+				<td><input type="text" id="article_post_name" th:field="*{name}" name="article_post_name"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span th:errors="*{content}" style="color:red"></span></td>
+			</tr>
+			<tr>
+				<td><label for="article_post_content">投稿内容：</label></td>
+				<td><textarea id="article_post_content" name="article_post_content" th:field="*{content}" rows="5" cols="23" style="resize:none"></textarea></td>
+			</tr>
+		</table>
+		<button>記事投稿</button>
+		<hr>
+	</form>
+</body>
+</html>

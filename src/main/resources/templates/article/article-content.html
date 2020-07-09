@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div th:fragment="article_content_fragment"> <!-- 記事投稿情報:article -->
+		<label>投稿者名：</label><span th:text="${article.name}"></span><br>
+		<label>投稿内容：</label><br>
+		<span th:text="${article.content}"></span><br>
+		<a th:href="@{/ex-bbs/article-delete?id=}+${article.id}"><button type="button">記事削除</button></a>
+		<button class="add_good_btn" th:value="${article.id}" type="button">いいね</button>
+		<span th:id="add_counter+${article.id}"></span>
+	</div>
+</body>
+</html>
