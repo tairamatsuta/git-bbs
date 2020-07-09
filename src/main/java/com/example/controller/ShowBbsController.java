@@ -10,7 +10,7 @@ import com.example.domain.Article;
 import com.example.repository.ArticleRepository;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("ex-bbs")
 public class ShowBbsController {
 	@Autowired
     private ArticleRepository articleRepository;
