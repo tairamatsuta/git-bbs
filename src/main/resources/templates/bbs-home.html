@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>掲示板</title>
+</head>
+<body>
+	<form th:replace="article/article-post-form::article_post_fragment"></form> <!-- 記事投稿フォーム -->
+	<div th:if="${articleNone}">投稿記事がありません</div>
+	<div th:each="article : ${articles}"> <!-- 記事投稿者分繰り返す -->
+		<div th:replace="article/article-content::article_content_fragment"></div>　<!-- 記事投稿表示 -->
+		<div th:replace="comment/comment-content::comment_content_fragment"></div>　<!-- コメント表示 -->
+		<form th:replace="comment/comment-post-form::comment_post_fragment"></form>　<!-- コメント投稿フォーム -->
+	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script th:src="@{/js/good_counter.js}"></script>
+</body>
+</html>
