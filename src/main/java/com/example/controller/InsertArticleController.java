@@ -47,6 +47,6 @@ public class InsertArticleController {
 		Article article = new Article();
 		BeanUtils.copyProperties(articleForm, article);
 		articleRepository.insert(article);
-		return "redirect:/bbs/";
+		return "redirect:/ex-bbs";
 	}
 }
